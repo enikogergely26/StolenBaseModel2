@@ -1,22 +1,38 @@
-# Stolen Base Success Prediction
-This project aims to develop a predictive model to determine the probability of a successful stolen base attempt when a runner takes off for an empty second base. The model uses various features related to the runner, pitcher, and catcher to assess the likelihood of success and inform decision-making during games.
+# Stolen Base Success Prediction Model
+This project presents a predictive model designed to estimate the probability of a successful stolen base attempt, specifically when a runner tries to steal second base with no other runners on the field. The model leverages a variety of features related to the catcher, pitcher, runner, and game situation to make accurate predictions.
 
-## Key Steps and Methodology
-**1. Data Selection:** Focused on stolen base attempts to second base with only a runner on first. Excluded irrelevant data such as pickoff attempts and wild pitches.
+## Project Overview
+**1. Objective:**
+- Predict whether a stolen base attempt will be successful based on various contextual factors.
 
-**2. Feature Engineering:**
-- Created features like lead distance, pitcher's arsenal, and historical stolen base success rates.
-- Addressed missing data with imputation techniques and excluded outliers.
-- Applied mean encoding to categorical variables like inning, score, and count.
+**2. Data Selection and Preparation:**
+- Focused on attempts to steal second base with a runner on first.
+- Excluded pickoff attempts and irrelevant plays like wild pitches.
+-Handled missing data by imputation, particularly for metrics like Pop Time, exchange times, and historical success rates.
 
-**3. Visualization and Analysis:**
-- Visualized key metrics using seaborn to identify important features for classification.
-- Analyzed correlations to select the most predictive features, such as secondary lead distance and historical success rates.
+**3. Feature Engineering:**
+- Catcher: Pop time, exchange time.
+- Pitcher: Plate time, handedness, pitch type usage.
+- Runner: Lead distance, secondary lead distance, sprint speed.
+- Game Context: Inning, score, balls, strikes, outs, defensive team lead.
+- Added historical stolen base success rates for pitchers, catchers, and runners.
 
-**4. Modeling:**
-- Tested various classifiers, optimizing for F1-score due to the imbalanced nature of the data.
-- Evaluated feature importance and validated the model using double density plots and confusion matrices.
+**4. Modeling Approach:**
+- Tested various classification models, including logistic regression and gradient-boosted trees.
+- Evaluated models using the F1-score to balance between maximizing successful steals and minimizing caught steals.
 
-## Next Steps
-- **Feature Expansion:** Incorporate additional features like hitter's plate discipline and pitch information.
-- **Broaden Scope:** Extend the model to cover more complex game situations, including multiple base runners and pickoff events.
+**5. Results:**
+- The final model, using logistic regression with all available features, achieved an F1-score of 0.861.
+- Feature importance analysis highlighted secondary lead distance and historical success rates as key predictors.
+
+**6. Visualization:**
+- Created plots to visualize the relationship between features and the probability of a successful steal.
+- Visualized model performance using confusion matrices and probability density plots.
+
+## How to Use the Model
+- The model can calculate the probability of a successful steal in a given game situation.
+- By comparing the model's prediction with the break-even success rate, teams can decide whether a steal attempt is advisable.
+
+## Future Work
+- Consider expanding the model to include more complex game situations, such as multiple base runners and different counts.
+- Investigate the impact of the 2023 MLB rule changes on the model’s predictions.
