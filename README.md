@@ -18,5 +18,5 @@ This project aims to develop a predictive model to determine the probability of 
 - Evaluated feature importance and validated the model using double density plots and confusion matrices.
 
 ## Next Steps
-- Feature Expansion: Incorporate additional features like hitter's plate discipline and pitch information.
-- Broaden Scope: Extend the model to cover more complex game situations, including multiple base runners and pickoff events.
+- **Feature Expansion:** Incorporate additional features like hitter's plate discipline and pitch information.
+- **Broaden Scope:** Extend the model to cover more complex game situations, including multiple base runners and pickoff events.
